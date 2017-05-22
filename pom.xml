@@ -4,9 +4,11 @@
 
     <!-- POM file generated with GWT webAppCreator -->
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.afrozaar.util.gwt.s3</groupId>
-    <artifactId>Com_afrozaar_util_gwt_s3</artifactId>
-    <packaging>war</packaging>
+
+    <!-- com.afrozaar.util.gwt:s3-gwt-util:jar:1.0-SNAPSHOT -->
+    <groupId>com.afrozaar.util.gwt</groupId>
+    <artifactId>s3-gwt-util</artifactId>
+    <packaging>gwt-lib</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>com.afrozaar.util.gwt.s3</name>
 
@@ -65,6 +67,7 @@
         <dependency>
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-elemental</artifactId>
+            <scope>compile</scope>
         </dependency>
 
     </dependencies>
@@ -79,18 +82,18 @@
             <plugin>
                 <groupId>net.ltgt.gwt.maven</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
-                <version>1.0-rc-6</version>
+                <version>1.0-rc-7</version>
+                <extensions>true</extensions>
                 <executions>
                     <execution>
                         <goals>
-                            <goal>import-sources</goal>
                             <goal>compile</goal>
-                            <goal>import-test-sources</goal>
                             <goal>test</goal>
                         </goals>
                     </execution>
                 </executions>
                 <configuration>
+                    <skipModule>true</skipModule>
                     <moduleName>com.afrozaar.util.gwt.s3.S3</moduleName>
                     <moduleShortName>S3</moduleShortName>
                     <failOnError>true</failOnError>
@@ -101,7 +104,10 @@
                         <!-- Ask GWT to create the Story of Your Compile (SOYC) (gwt:compile) -->
                         <arg>-compileReport</arg>
                         <arg>-XcompilerMetrics</arg>
+                        <compilerArg>-generateJsInteropExports</compilerArg>
+                        <arg>-generateJsInteropExports</arg>
                     </compilerArgs>
+                    <generateJsInteropExports>true</generateJsInteropExports>
                     <!-- DevMode configuration -->
                     <warDir>${project.build.directory}/${project.build.finalName}</warDir>
                     <classpathScope>compile+runtime</classpathScope>
