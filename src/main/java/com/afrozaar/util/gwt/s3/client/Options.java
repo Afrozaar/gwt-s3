@@ -10,4 +10,10 @@ public class Options {
     @JsProperty
     public String secretAccessKey;
 
+    public Options(String accessKeyId, String secretAccessKey) {
+        super();
+        this.accessKeyId = accessKeyId;
+        this.secretAccessKey = secretAccessKey;
+    }
+
 }

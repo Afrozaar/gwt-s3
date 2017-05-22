@@ -5,7 +5,6 @@ import com.afrozaar.util.gwt.s3.client.model.ManagedUpload;
 import com.afrozaar.util.gwt.s3.client.model.UploadComplete;
 import com.afrozaar.util.gwt.s3.client.model.UploadRequest;
 
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.FileUpload;
 import com.google.inject.Inject;
@@ -25,9 +24,13 @@ public class S3Upload {
     public void upload(FileUpload fileUpload, String bucket, String key, IProgressListener progressListener, UploadComplete response) {
         InputElement element = (InputElement) fileUpload.getElement();
         //GWT.log("type = " + element.getFiles().item(0).getType());
-        File item = element.getFiles().item(0);
-        UploadRequest uploadRequest = new UploadRequest(bucket, key, item);
-        uploadRequest.setContentType(item.getType());
+        File file = element.getFiles().item(0);
+        upload(file, bucket, key, progressListener, response);
+    }
+
+    public void upload(File file, String bucket, String key, IProgressListener progressListener, UploadComplete response) {
+        UploadRequest uploadRequest = new UploadRequest(bucket, key, file);
+        uploadRequest.setContentType(file.getType());
         ManagedUpload upload = s3.upload(uploadRequest);
         upload.on("httpUploadProgress", progressListener);
         upload.send(response);
