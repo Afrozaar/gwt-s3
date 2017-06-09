@@ -12,6 +12,19 @@
     <version>1.0-SNAPSHOT</version>
     <name>com.afrozaar.util.gwt.s3</name>
 
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <name>artifactory.afrozaar.com-releases</name>
+            <url>${deploy-release}</url>
+        </repository>
+        <snapshotRepository>
+            <id>remote-plugins-snapshot</id>
+            <name>artifactory.afrozaar.com-snapshots</name>
+            <url>${deploy-snapshot}</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <properties>
 
         <!-- Setting maven.compiler.source to something different to 1.8 needs that you configure the sourceLevel in gwt-maven-plugin since GWT 
@@ -22,6 +35,9 @@
         <!-- Don't let your Mac use a crazy non-standard encoding -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <deploy-release>${repository.home}/libs-release-local</deploy-release>
+        <deploy-snapshot>${repository.home}/libs-snapshot-local</deploy-snapshot>
+
     </properties>
 
     <dependencyManagement>
