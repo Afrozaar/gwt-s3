@@ -2,6 +2,7 @@ package com.afrozaar.util.gwt.s3.client;
 
 import com.google.gwt.inject.client.AbstractGinModule;
 import com.google.inject.Provides;
+import com.google.inject.Singleton;
 
 public class AWSModule extends AbstractGinModule {
 
@@ -20,6 +21,7 @@ public class AWSModule extends AbstractGinModule {
     }
 
     @Provides
+    @Singleton
     AWS getAWS(Resources resources, AWSFactory s3Factory) {
         return s3Factory.getAws();
     }
