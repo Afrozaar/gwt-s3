@@ -23,7 +23,7 @@ public class AWSModule extends AbstractGinModule {
     @Provides
     @Singleton
     AWS getAWS(Resources resources, AWSFactory s3Factory) {
-        return s3Factory.getAws();
+        return AWSFactory.getAws();
     }
 
 }
