@@ -9,6 +9,7 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.FileUpload;
 import com.google.inject.Inject;
 
+import elemental.html.File;
 import elemental.html.InputElement;
 
 public class S3Upload {
@@ -22,7 +23,15 @@ public class S3Upload {
 
     public void upload(FileUpload fileUpload, String bucket, String key, IProgressListener progressListener, UploadComplete response) {
         InputElement element = (InputElement) fileUpload.getElement();
-        ManagedUpload upload = s3.upload(new UploadRequest(bucket, key, element.getFiles().item(0)));
+        //GWT.log("type = " + element.getFiles().item(0).getType());
+        File file = element.getFiles().item(0);
+        upload(file, bucket, key, progressListener, response);
+    }
+
+    public void upload(File file, String bucket, String key, IProgressListener progressListener, UploadComplete response) {
+        UploadRequest uploadRequest = new UploadRequest(bucket, key, file);
+        uploadRequest.setContentType(file.getType());
+        ManagedUpload upload = s3.upload(uploadRequest);
         upload.on("httpUploadProgress", progressListener);
         upload.send(response);
     }
