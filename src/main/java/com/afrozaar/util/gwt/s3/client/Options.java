@@ -1,7 +1,6 @@
 package com.afrozaar.util.gwt.s3.client;
 
 import jsinterop.annotations.JsProperty;
-import jsinterop.annotations.JsType;
 
 public class Options {
 
@@ -9,11 +8,14 @@ public class Options {
     public String accessKeyId;
     @JsProperty
     public String secretAccessKey;
+    @JsProperty
+    public String region;
 
-    public Options(String accessKeyId, String secretAccessKey) {
+    public Options(String accessKeyId, String secretAccessKey, String region) {
         super();
         this.accessKeyId = accessKeyId;
         this.secretAccessKey = secretAccessKey;
+        this.region = region;
     }
 
 }
