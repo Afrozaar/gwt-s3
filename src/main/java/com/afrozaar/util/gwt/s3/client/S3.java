@@ -5,6 +5,7 @@ import com.afrozaar.util.gwt.s3.client.model.ListObjectsRequest;
 import com.afrozaar.util.gwt.s3.client.model.ManagedUpload;
 import com.afrozaar.util.gwt.s3.client.model.SignedUrlParamsJs;
 import com.afrozaar.util.gwt.s3.client.model.UploadComplete;
+import com.afrozaar.util.gwt.s3.client.model.UploadOptions;
 import com.afrozaar.util.gwt.s3.client.model.UploadRequest;
 
 import jsinterop.annotations.JsMethod;
@@ -24,6 +25,9 @@ public class S3 {
 
     @JsMethod
     public native ManagedUpload upload(UploadRequest uploadRequest);
+    
+    @JsMethod
+    public native ManagedUpload upload(UploadRequest uploadRequest, UploadOptions options);
 
     /**
      * var params = {Bucket: 'bucket', Key: 'key', Expires: 60};
@@ -34,4 +38,5 @@ public class S3 {
     @JsMethod
     public native String getSignedUrl(String operation, SignedUrlParamsJs params);
 
+    
 }
