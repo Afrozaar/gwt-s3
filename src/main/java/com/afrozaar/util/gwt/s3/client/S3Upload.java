@@ -31,19 +31,24 @@ public class S3Upload {
     }
 
     public void upload(File file, String bucket, String key, IProgressListener progressListener, UploadComplete response) {
-        upload(file, bucket, key, progressListener, response, getUploadOptions(file));
+        upload(file, bucket, key, progressListener, response, null);
     }
 
     public void upload(File file, String bucket, String key, IProgressListener progressListener, UploadComplete response, UploadOptions uploadOptions) {
         UploadRequest uploadRequest = new UploadRequest(bucket, key, file);
         uploadRequest.setContentType(file.getType());
-        ManagedUpload upload = s3.upload(uploadRequest, uploadOptions);
+        ManagedUpload upload;
+        if (uploadOptions != null) {
+            upload = s3.upload(uploadRequest, uploadOptions);
+        } else {
+            upload = s3.upload(uploadRequest);
+        }
         upload.on("httpUploadProgress", progressListener);
         upload.send(response);
     }
 
     private UploadOptions getUploadOptions(File file) {
-        return new UploadOptions(1 * 1024, 4);
+        return new UploadOptions(5 * 1024, 4);
     }
 
     private native Object getFile(Element fu2) /*-{
