@@ -7,6 +7,9 @@ import jsinterop.annotations.JsProperty;
 
 public class UploadRequest {
 
+    @JsProperty(name = "ACL")
+    public native void setAcl(String acl);
+
     @JsProperty(name = "Bucket")
     public native void setBucket(String bucket);
 
