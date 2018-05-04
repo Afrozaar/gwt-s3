@@ -23,20 +23,24 @@ public class S3Upload {
         this.s3 = s3;
     }
 
-    public void upload(FileUpload fileUpload, String bucket, String key, IProgressListener progressListener, UploadComplete response) {
+    public void upload(FileUpload fileUpload, String bucket, String key, IProgressListener progressListener, UploadComplete response, boolean publicRead) {
         InputElement element = (InputElement) fileUpload.getElement();
         //GWT.log("type = " + element.getFiles().item(0).getType());
         File file = element.getFiles().item(0);
-        upload(file, bucket, key, progressListener, response);
+        upload(file, bucket, key, progressListener, response, publicRead);
     }
 
-    public void upload(File file, String bucket, String key, IProgressListener progressListener, UploadComplete response) {
-        upload(file, bucket, key, progressListener, response, null);
+    public void upload(File file, String bucket, String key, IProgressListener progressListener, UploadComplete response, boolean publicRead) {
+        upload(file, bucket, key, progressListener, response, null, publicRead);
     }
 
-    public void upload(File file, String bucket, String key, IProgressListener progressListener, UploadComplete response, UploadOptions uploadOptions) {
+    public void upload(File file, String bucket, String key, IProgressListener progressListener, UploadComplete response, UploadOptions uploadOptions,
+            boolean publicRead) {
         UploadRequest uploadRequest = new UploadRequest(bucket, key, file);
         uploadRequest.setContentType(file.getType());
+        if (publicRead) {
+            uploadRequest.setAcl("public-read");
+        }
         ManagedUpload upload;
         if (uploadOptions != null) {
             upload = s3.upload(uploadRequest, uploadOptions);
