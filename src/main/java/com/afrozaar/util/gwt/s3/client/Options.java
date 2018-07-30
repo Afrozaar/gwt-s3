@@ -10,12 +10,18 @@ public class Options {
     public String secretAccessKey;
     @JsProperty
     public String region;
+    @JsProperty
+    public Boolean useAccelerateEndpoint;
 
     public Options(String accessKeyId, String secretAccessKey, String region) {
         super();
         this.accessKeyId = accessKeyId;
         this.secretAccessKey = secretAccessKey;
         this.region = region;
+    }
+
+    public void setUseAccelerateEndpoint(Boolean useAccelerateEndpoint) {
+        this.useAccelerateEndpoint = useAccelerateEndpoint;
     }
 
 }
