@@ -5,7 +5,7 @@ import com.google.gwt.resources.client.TextResource;
 
 public interface Resources extends ClientBundle {
 
-    @Source("aws-sdk-2.563.0.min.js")
+    @Source("aws-sdk-2.563.0.js")
     TextResource s3Js();
 
 }

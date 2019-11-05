@@ -1,4 +1,4 @@
-package com.afrozaar.util.gwt.aws.client;
+package com.afrozaar.util.gwt.aws.client.s3;
 
 import com.google.gwt.core.client.GWT;
 

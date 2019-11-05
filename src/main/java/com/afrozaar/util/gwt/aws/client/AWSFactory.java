@@ -1,6 +1,7 @@
 package com.afrozaar.util.gwt.aws.client;
 
 import com.afrozaar.util.gwt.aws.client.s3.S3;
+import com.afrozaar.util.gwt.aws.client.sqs.SQS;
 
 import com.google.gwt.core.client.ScriptInjector;
 
@@ -23,7 +24,9 @@ public class AWSFactory {
     }-*/;
     
     public native SQS createSqs(AWS aws) /*-{
-    return new aws.SQS();
+        sqs = new aws.SQS(aws.config);
+        console.log('sqs = ', sqs);
+    return sqs;
 }-*/;
 
     public native S3 createS3() /*-{

@@ -46,7 +46,7 @@
             <dependency>
                 <groupId>com.google.gwt</groupId>
                 <artifactId>gwt</artifactId>
-                <version>2.8.2</version>
+                <version>2.8.2-rx1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -86,6 +86,11 @@
             <scope>compile</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-core</artifactId>
+            <version>1.0.0-RC1</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -109,11 +114,12 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <codeServerPort>9875</codeServerPort>
+                    <codeServerPort>9876</codeServerPort>
                     <skipModule>true</skipModule>
-                    <moduleName>com.afrozaar.util.gwt.aws.S3Test</moduleName>
+                    <moduleName>com.afrozaar.util.gwt.aws.SqsTest</moduleName>
                     <moduleShortName>S3</moduleShortName>
                     <failOnError>true</failOnError>
+
                     <!-- GWT compiler 2.8 requires 1.8, hence define sourceLevel here if you use a different source language 
                         for java compilation -->
                     <sourceLevel>1.8</sourceLevel>
@@ -125,6 +131,13 @@
                         <compilerArg>-generateJsInteropExports</compilerArg>
                         <arg>-generateJsInteropExports</arg>
                     </compilerArgs>
+                    <codeserverArgs>
+                        <arg>-generateJsInteropExports</arg>
+                        <arg>-incremental</arg>
+                        <arg>-XmethodNameDisplayMode</arg>
+                        <arg>FULL</arg>
+                    </codeserverArgs>
+
                     <generateJsInteropExports>true</generateJsInteropExports>
                     <!-- DevMode configuration -->
                     <warDir>${project.build.directory}/${project.build.finalName}</warDir>
