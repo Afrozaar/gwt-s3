@@ -1,6 +1,9 @@
-package com.afrozaar.util.gwt.s3.client;
+package com.afrozaar.util.gwt.aws.client;
+
+import com.afrozaar.util.gwt.aws.client.s3.S3;
 
 import com.google.gwt.core.client.ScriptInjector;
+
 import com.google.inject.Inject;
 
 public class AWSFactory {
@@ -18,6 +21,10 @@ public class AWSFactory {
     public native S3 createS3(AWS aws) /*-{
 		return new aws.S3();
     }-*/;
+    
+    public native SQS createSqs(AWS aws) /*-{
+    return new aws.SQS();
+}-*/;
 
     public native S3 createS3() /*-{
 		return new $wnd.AWS.S3();

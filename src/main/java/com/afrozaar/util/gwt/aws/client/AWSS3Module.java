@@ -1,10 +1,14 @@
-package com.afrozaar.util.gwt.s3.client;
+package com.afrozaar.util.gwt.aws.client;
+
+import com.afrozaar.util.gwt.aws.client.s3.S3;
+import com.afrozaar.util.gwt.aws.client.s3.S3Upload;
 
 import com.google.gwt.inject.client.AbstractGinModule;
+
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 
-public class AWSModule extends AbstractGinModule {
+public class AWSS3Module extends AbstractGinModule {
 
     @Override
     protected void configure() {

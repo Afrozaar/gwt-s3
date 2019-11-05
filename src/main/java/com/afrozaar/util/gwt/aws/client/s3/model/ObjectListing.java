@@ -12,7 +12,7 @@
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-package com.afrozaar.util.gwt.s3.client.model;
+package com.afrozaar.util.gwt.aws.client.s3.model;
 
 import jsinterop.annotations.JsProperty;
 

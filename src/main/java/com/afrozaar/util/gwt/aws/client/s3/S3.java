@@ -1,12 +1,12 @@
-package com.afrozaar.util.gwt.s3.client;
+package com.afrozaar.util.gwt.aws.client.s3;
 
-import com.afrozaar.util.gwt.s3.client.model.IListObjectsResponse;
-import com.afrozaar.util.gwt.s3.client.model.ListObjectsRequest;
-import com.afrozaar.util.gwt.s3.client.model.ManagedUpload;
-import com.afrozaar.util.gwt.s3.client.model.SignedUrlParamsJs;
-import com.afrozaar.util.gwt.s3.client.model.UploadComplete;
-import com.afrozaar.util.gwt.s3.client.model.UploadOptions;
-import com.afrozaar.util.gwt.s3.client.model.UploadRequest;
+import com.afrozaar.util.gwt.aws.client.s3.model.IListObjectsResponse;
+import com.afrozaar.util.gwt.aws.client.s3.model.ListObjectsRequest;
+import com.afrozaar.util.gwt.aws.client.s3.model.ManagedUpload;
+import com.afrozaar.util.gwt.aws.client.s3.model.SignedUrlParamsJs;
+import com.afrozaar.util.gwt.aws.client.s3.model.UploadComplete;
+import com.afrozaar.util.gwt.aws.client.s3.model.UploadOptions;
+import com.afrozaar.util.gwt.aws.client.s3.model.UploadRequest;
 
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsType;

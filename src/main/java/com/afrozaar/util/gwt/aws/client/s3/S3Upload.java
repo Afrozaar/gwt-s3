@@ -1,10 +1,10 @@
-package com.afrozaar.util.gwt.s3.client;
+package com.afrozaar.util.gwt.aws.client.s3;
 
-import com.afrozaar.util.gwt.s3.client.model.IProgressListener;
-import com.afrozaar.util.gwt.s3.client.model.ManagedUpload;
-import com.afrozaar.util.gwt.s3.client.model.UploadComplete;
-import com.afrozaar.util.gwt.s3.client.model.UploadOptions;
-import com.afrozaar.util.gwt.s3.client.model.UploadRequest;
+import com.afrozaar.util.gwt.aws.client.s3.model.IProgressListener;
+import com.afrozaar.util.gwt.aws.client.s3.model.ManagedUpload;
+import com.afrozaar.util.gwt.aws.client.s3.model.UploadComplete;
+import com.afrozaar.util.gwt.aws.client.s3.model.UploadOptions;
+import com.afrozaar.util.gwt.aws.client.s3.model.UploadRequest;
 
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.FileUpload;

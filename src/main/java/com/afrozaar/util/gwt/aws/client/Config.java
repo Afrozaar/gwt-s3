@@ -1,4 +1,4 @@
-package com.afrozaar.util.gwt.s3.client;
+package com.afrozaar.util.gwt.aws.client;
 
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsType;
