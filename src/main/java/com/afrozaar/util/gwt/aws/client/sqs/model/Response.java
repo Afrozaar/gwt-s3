@@ -4,7 +4,7 @@ import jsinterop.annotations.JsFunction;
 
 @JsFunction
 @FunctionalInterface
-public interface Response<T> {
+public interface Response {
 
-    public void result(Object error, T data);
+    public void result(Object error, Result data);
 }

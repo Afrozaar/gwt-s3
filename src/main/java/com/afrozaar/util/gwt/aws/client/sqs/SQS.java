@@ -1,13 +1,11 @@
 package com.afrozaar.util.gwt.aws.client.sqs;
 
-import com.afrozaar.util.gwt.aws.client.sqs.model.CreateQueueRequest;
-import com.afrozaar.util.gwt.aws.client.sqs.model.DeleteMessageRequest;
-import com.afrozaar.util.gwt.aws.client.sqs.model.DeleteQueueRequest;
-import com.afrozaar.util.gwt.aws.client.sqs.model.GetQueueUrlRequest;
-import com.afrozaar.util.gwt.aws.client.sqs.model.GetQueueUrlResponse;
-import com.afrozaar.util.gwt.aws.client.sqs.model.Params;
+import com.afrozaar.util.gwt.aws.client.sqs.model.CreateQueue;
+import com.afrozaar.util.gwt.aws.client.sqs.model.DeleteMessage;
+import com.afrozaar.util.gwt.aws.client.sqs.model.DeleteQueue;
+import com.afrozaar.util.gwt.aws.client.sqs.model.GetQueueAttributes;
+import com.afrozaar.util.gwt.aws.client.sqs.model.GetQueueUrl;
 import com.afrozaar.util.gwt.aws.client.sqs.model.Response;
-import com.afrozaar.util.gwt.aws.client.sqs.model.Result;
 
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsType;
@@ -16,21 +14,18 @@ import jsinterop.annotations.JsType;
 public class SQS {
 
     @JsMethod
-    public native void getQueueAttributes(Params params, Response<Result> result);
-
-    @SuppressWarnings("unusable-by-js")
-    @JsMethod
-    public native void deleteMessage(DeleteMessageRequest request, Response<Result> result);
-
-    @SuppressWarnings("unusable-by-js")
-    @JsMethod
-    public native void createQueue(CreateQueueRequest request, Response<Result> result);
-
-    @SuppressWarnings("unusable-by-js")
-    @JsMethod
-    public native void deleteQueue(DeleteQueueRequest request, Response<Result> result);
+    public native void getQueueAttributes(GetQueueAttributes.Request request, GetQueueAttributes.Function result);
 
     @JsMethod
-    public native void getQueueUrl(GetQueueUrlRequest request, Response<GetQueueUrlResponse> result);
+    public native void deleteMessage(DeleteMessage.Request request, Response result);
+
+    @JsMethod
+    public native void createQueue(CreateQueue.Request request, CreateQueue.Function result);
+
+    @JsMethod
+    public native void deleteQueue(DeleteQueue.Request request, Response result);
+
+    @JsMethod
+    public native void getQueueUrl(GetQueueUrl.Request request, GetQueueUrl.Function result);
 
 }

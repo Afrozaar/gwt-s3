@@ -7,13 +7,7 @@ import jsinterop.annotations.JsProperty;
 
 public final class Result {
 
-    @JsProperty(name = "QueueUrl")
-    public native final String getQueueUrl();
-
     @JsProperty(name = "ResponseMetadata")
     public native final JsMap<String, String> getResponseMetaData();
-
-    @JsProperty(name = "Attributes")
-    public native final JsMap<String, String> getAttributes();
 
 }
