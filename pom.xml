@@ -120,6 +120,8 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <optimize>0</optimize>
+                    <style>DETAILED</style>
                     <codeServerPort>9876</codeServerPort>
                     <skipModule>true</skipModule>
                     <moduleName>com.afrozaar.util.gwt.aws.SqsTest</moduleName>

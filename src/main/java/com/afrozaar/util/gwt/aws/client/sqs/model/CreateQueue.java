@@ -46,6 +46,7 @@ public class CreateQueue {
         @JsProperty(name = "QueueName")
         public native void setQueueName(String queueUrl);
 
+        @SuppressWarnings("unusable-by-js")
         @JsProperty(name = "Attributes")
         public native void setQueueAttributes(JsonObject attributes);
 

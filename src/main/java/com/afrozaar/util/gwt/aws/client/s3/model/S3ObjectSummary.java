@@ -26,6 +26,7 @@ import jsinterop.annotations.JsProperty;
  * 
  * @see S3Object
  */
+@SuppressWarnings({ "unusable-by-js", "serial" })
 public class S3ObjectSummary implements Serializable {
 
     /** Hex encoded MD5 hash of this object's contents, as computed by Amazon S3 */

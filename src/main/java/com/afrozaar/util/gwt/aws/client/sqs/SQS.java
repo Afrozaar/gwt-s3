@@ -13,6 +13,7 @@ import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsType;
 
 @JsType(isNative = true, name = "SQS")
+@SuppressWarnings("unusable-by-js")
 public class SQS {
 
     @JsMethod

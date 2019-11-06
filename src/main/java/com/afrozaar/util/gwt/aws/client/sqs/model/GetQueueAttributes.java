@@ -5,9 +5,11 @@ import com.google.gwt.core.client.JsArrayString;
 import elemental2.core.JsMap;
 import jsinterop.annotations.JsFunction;
 import jsinterop.annotations.JsProperty;
+import jsinterop.annotations.JsType;
 
 public class GetQueueAttributes {
 
+    @SuppressWarnings("unusable-by-js")
     public static class Request {
 
         @JsProperty(name = "AttributeNames")

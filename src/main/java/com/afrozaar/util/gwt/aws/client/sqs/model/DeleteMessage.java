@@ -6,6 +6,14 @@ import jsinterop.annotations.JsProperty;
 public class DeleteMessage {
 
     public static class Request {
+        public Request() {
+        }
+
+        public Request(String qeueUrl, String receiptHandle) {
+            setQueueUrl(qeueUrl);
+            setReceiptHandle(receiptHandle);
+        }
+
         @JsProperty(name = "QueueUrl")
         public native void setQueueUrl(String queueUrl);
 

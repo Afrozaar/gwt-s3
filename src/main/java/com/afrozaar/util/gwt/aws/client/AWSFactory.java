@@ -11,7 +11,7 @@ public class AWSFactory {
 
     @Inject
     public AWSFactory(Resources resources) {
-        ScriptInjector.fromString(resources.s3Js().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
+        ScriptInjector.fromString(resources.awsJs().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
     }
 
     public static native AWS getAws() /*-{
