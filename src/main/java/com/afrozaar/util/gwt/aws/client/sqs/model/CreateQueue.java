@@ -1,27 +1,53 @@
 package com.afrozaar.util.gwt.aws.client.sqs.model;
 
+import com.google.gwt.core.client.GWT;
+
+import com.github.nmorel.gwtjackson.client.ObjectMapper;
+
 import java.util.Map;
 
+import elemental.json.Json;
+import elemental.json.JsonObject;
 import elemental2.core.JsMap;
 import jsinterop.annotations.JsFunction;
 import jsinterop.annotations.JsProperty;
 
 public class CreateQueue {
 
+    public static interface Mapper extends ObjectMapper<Map<String, Object>> {
+    }
+
+    public static Mapper mapper = GWT.create(Mapper.class);
+
     public static class Request {
 
-        public Request(String queueName, Map<String, String> object) {
+        public Request(String queueName, Map<String, Object> object) {
             setQueueName(queueName);
-            JsMap<String, String> jsMap = new JsMap<String, String>();
-            object.forEach((k, v) -> jsMap.set(k, v));
-            setQueueAttributes(jsMap);
+            String write = mapper.write(object);
+            GWT.log("json = " + write);
+
+            JsonObject parse = Json.parse(write);
+            /*JsMap<String, Object> jsMap = new JsMap<>();
+            object.forEach((k, v) -> {
+                if (v instanceof Number) {
+                    jsMap.set(k, ((Number) v).intValue());
+                } else {
+                    jsMap.set(k, v);
+                }
+            });*/
+            setQueueAttributes(parse);
+            log(parse);
         }
+
+        public native void log(Object object) /*-{
+			console.log(object);
+        }-*/;
 
         @JsProperty(name = "QueueName")
         public native void setQueueName(String queueUrl);
 
         @JsProperty(name = "Attributes")
-        public native void setQueueAttributes(JsMap<String, String> attributes);
+        public native void setQueueAttributes(JsonObject attributes);
 
     }
 
