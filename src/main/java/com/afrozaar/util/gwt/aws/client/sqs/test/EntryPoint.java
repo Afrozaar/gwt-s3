@@ -25,8 +25,8 @@ import elemental2.core.JsArray;
 
 public class EntryPoint implements com.google.gwt.core.client.EntryPoint {
 
-    private String accessKey = "AKIAJ42HWPLJBS75XNWQ";
-    private String secret = "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";
+    private String accessKey = null;
+    private String secret =null;
     private String region = "eu-west-1";
     private SQS sqs;
 
