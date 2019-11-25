@@ -7,10 +7,10 @@
 
     <!-- com.afrozaar.util.gwt:s3-gwt-util:jar:1.0-SNAPSHOT -->
     <groupId>com.afrozaar.util.gwt</groupId>
-    <artifactId>s3-gwt-util</artifactId>
-    <packaging>war</packaging>
-    <version>1.6.0-SNAPSHOT</version>
-    <name>com.afrozaar.util.gwt.s3</name>
+    <artifactId>aws-gwt-util</artifactId>
+    <packaging>gwt-lib</packaging>
+    <version>1.6.0</version>
+    <name>com.afrozaar.util.gwt.aws</name>
 
     <distributionManagement>
         <repository>
@@ -124,8 +124,8 @@
                     <style>DETAILED</style>
                     <codeServerPort>9876</codeServerPort>
                     <skipModule>true</skipModule>
-                    <moduleName>com.afrozaar.util.gwt.aws.SqsTest</moduleName>
-                    <moduleShortName>S3</moduleShortName>
+                    <moduleName>com.afrozaar.util.gwt.aws.AWS</moduleName>
+                    <moduleShortName>Aws</moduleShortName>
                     <failOnError>true</failOnError>
 
                     <!-- GWT compiler 2.8 requires 1.8, hence define sourceLevel here if you use a different source language 

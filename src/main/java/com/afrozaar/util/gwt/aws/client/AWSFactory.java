@@ -15,17 +15,15 @@ public class AWSFactory {
     }
 
     public static native AWS getAws() /*-{
-		console.log('aws = ', $wnd.AWS);
 		return $wnd.AWS;
     }-*/;
 
     public native S3 createS3(AWS aws) /*-{
-		return new aws.S3();
+		return new aws.S3(aws.config);
     }-*/;
     
     public native SQS createSqs(AWS aws) /*-{
         sqs = new aws.SQS(aws.config);
-        console.log('sqs = ', sqs);
     return sqs;
 }-*/;
 
